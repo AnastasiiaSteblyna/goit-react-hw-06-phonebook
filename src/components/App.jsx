@@ -29,23 +29,14 @@ export const App = () => {
     }
 
     setContacts(prevState => [contact, ...prevState]);
-    // this.setState(prevState => ({
-    //   contacts: [contact, ...prevState.contacts],
-    // }));
   };
 
   const filterContacts = e => {
     setFilter(e.currentTarget.value);
-    // this.setState({
-    //   filter: e.currentTarget.value,
-    // });
   };
 
   const deleteContacts = id => {
     setContacts(prevState => prevState.filter(contact => contact.id !== id));
-    // this.setState(prevState => ({
-    //   contacts: prevState.contacts.filter(c => c.id !== id),
-    // }));
   };
 
   const renderContacts = contacts.filter(contact => {
