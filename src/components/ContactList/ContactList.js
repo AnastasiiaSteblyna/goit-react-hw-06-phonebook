@@ -1,8 +1,10 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import css from '../../styles/Common.module.css';
 
 const ContactList = ({ renderContacts, deleteContacts }) => {
+  const dispatch = useDispatch();
   return (
     <ul className={css.list}>
       {renderContacts.map(({ id, name, number }) => (
@@ -11,7 +13,7 @@ const ContactList = ({ renderContacts, deleteContacts }) => {
           <button
             className={css.btnDelete}
             type="button"
-            onClick={() => deleteContacts(id)}
+            onClick={() => dispatch(deleteContacts(id))}
           >
             Delete
           </button>
