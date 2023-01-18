@@ -10,7 +10,7 @@ export const myContactSlice = createSlice({
       state.contacts.push(action.payload);
     },
 
-    remove(state, action) {
+    deleteContact(state, action) {
       const index = state.contacts.findIndex(
         task => task.id === action.payload
       );
@@ -18,4 +18,4 @@ export const myContactSlice = createSlice({
     },
   },
 });
-export const { addContact, remove } = myContactSlice.actions;
+export const { addContact, deleteContact } = myContactSlice.actions;

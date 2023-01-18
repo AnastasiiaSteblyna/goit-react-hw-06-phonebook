@@ -1,14 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { contactFilter } from 'redux/slices/filterSlice';
 import css from '../../styles/Common.module.css';
 
-const ContactFilter = ({ filter }) => {
+const ContactFilter = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className={css.form}>
       <h2>Contacts</h2>
       <label>Find contacts by name</label>
       <input
-        onChange={filter}
+        onChange={e => dispatch(contactFilter(e.currentTarget.value))}
         className={css.input}
         type="text"
         name="filter"
@@ -16,10 +19,6 @@ const ContactFilter = ({ filter }) => {
       />
     </div>
   );
-};
-
-ContactFilter.propTypes = {
-  filter: PropTypes.func.isRequired,
 };
 
 export default ContactFilter;
